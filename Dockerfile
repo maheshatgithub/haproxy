@@ -31,7 +31,7 @@ ENV TEMPLATE_FILE=/var/lib/haproxy/conf/haproxy-config.template \
     RELOAD_SCRIPT=/var/lib/haproxy/reload-haproxy
 
 ADD ./python_unix_socket.py /tmp/python_unix_socket.py
+ADD ./startup.sh /tmp/startup.sh
 
-ENTRYPOINT ["/usr/bin/openshift-router"]
+ENTRYPOINT ["/tmp/startup.sh"]
 
-CMD python /tmp/python_unix_socket.py
